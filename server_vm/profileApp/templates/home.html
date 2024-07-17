@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+	<div class="one">
+		<div class="two">
+			<h1>Side Bar</h1>
+			<ul>
+                <li class="active"><a href="{{url_for('home')}}">home</a></li>
+                <li><a href="{{url_for('logout')}}">Log out</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="topbar">
+				<h1>Admin</h1>
+			</div>
+			<div class="contentbar">
+				<div class="users">
+						<div class="info">
+							<h2>users info</h2>
+						</div>
+                        {% block content %}
+						<table class="border"></br></br></br></br>
+							<thead>
+								<tr>
+									<th>Username</td>
+									<th>Email</td>
+								</tr>
+							</thead>
+							{% for user in accounts %}
+							<tr>
+								<td>{{ user['username'] }}</td>
+								<td>{{ user['email'] }}</td>
+							</tr>	
+							{% endfor %}		 
+						</table>
+					{% endblock %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
